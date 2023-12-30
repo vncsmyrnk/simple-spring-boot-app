@@ -1,8 +1,12 @@
 #!/bin/bash
 
-echo "Running git pre-commit hook"
+echo "Running git pre-commit hook..."
 
-./gradlew bootJar
+echo "Building docker image..."
+docker build .
+
+echo "Building app..."
+docker run --rm -v "$(pwd)":/var/app cloked-timecalculator ./gradlew bootJar
 
 RESULT=$?
 
