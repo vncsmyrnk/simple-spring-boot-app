@@ -3,10 +3,10 @@
 echo "Running git pre-commit hook..."
 
 echo "Building docker image..."
-docker build .
+docker build --tag app-image .
 
 echo "Building app..."
-docker run --rm -v "$(pwd)":/var/app cloked-timecalculator ./gradlew bootJar
+docker run --rm -v "$(pwd)":/var/app app-image ./gradlew bootJar
 
 RESULT=$?
 

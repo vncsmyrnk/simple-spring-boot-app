@@ -3,7 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '3.2.1'
 	id 'io.spring.dependency-management' version '1.1.4'
   id 'nebula.lint' version '19.0.1'
-    id 'com.diffplug.spotless' version '6.23.0'
+  id 'com.diffplug.spotless' version '6.23.0'
 }
 
 group = 'com.clocked'
@@ -22,8 +22,12 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+testing {
+  suites {
+    test {
+      useJUnitJupiter()
+    }
+  }
 }
 
 task installLocalGitHook(type: Copy) {
@@ -41,6 +45,7 @@ spotless {
 
 bootJar {
   dependsOn spotlessCheck
+  dependsOn test
   dependsOn installLocalGitHook
 }
 
