@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: gradle:8.5.0-jdk17-alpine
+    container: gradle:8.5.0-jdk21-alpine
     steps:
       - name: Checkout
         uses: actions/checkout@v4
