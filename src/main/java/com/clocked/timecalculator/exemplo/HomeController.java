@@ -1,0 +1,15 @@
+package com.clocked.timecalculator.exemplo;
+
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/")
+public class HomeController {
+
+    @GetMapping(value="")
+    public String home(){
+        return "Hello World!";
+    }
+
+}
+
