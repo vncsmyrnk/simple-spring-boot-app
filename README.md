@@ -1,6 +1,6 @@
-# Time Calculator
+# Simple app using Spring Boot
 
-This is a simple API that calculates work hours based on REST requests.
+This is a simple app build with Spring Boot.
 
 ## Run
 
